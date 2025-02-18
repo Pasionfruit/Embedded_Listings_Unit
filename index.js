@@ -7,10 +7,10 @@ app.get('/', (req, res) => {
 });
 
 
-// const PORT = 5000;
-// app.listen(PORT, "0.0.0.0", () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
+const PORT = 5000;
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 // const { Client } = require('pg');
 
