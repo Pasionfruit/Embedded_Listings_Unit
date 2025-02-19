@@ -1,18 +1,13 @@
 import React from 'react';
 
-const Card = ({ title, description, price, imageUrl, attributes }) => (
+const Card = ({ heading, description, speed, price, imageUrl, offerUrl }) => (
   <div className="card">
-    <img src={imageUrl} alt={title} />
-    <h2 className="card-title">{title}</h2>
+    <h2 className="card-heading">{heading}</h2>
+    <img src={imageUrl} alt={heading} />
+    <p>Speeds up to {speed}</p>
     <p>{description}</p>
-    <p className="text-green-600 font-bold">${price}</p>
-    <div>
-      {attributes && attributes.map((attr, index) => (
-        <span key={index} className="card-attribute">
-          {attr}
-        </span>
-      ))}
-    </div>
+    <p>Pricing starting from ${price}</p>
+    <button onClick={() => window.open(offerUrl, '_blank')}>View Plans</button>
   </div>
 );
 
