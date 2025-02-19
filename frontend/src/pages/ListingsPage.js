@@ -6,19 +6,21 @@ const ListingsPage = () => {
   const dummyListings = [
     {
       id: 1,
-      title: 'Luxury Apartment',
-      description: 'A beautiful apartment in downtown.',
-      price: 2500,
+      heading: 'Astound Internet First',
       imageUrl: 'https://via.placeholder.com/300',
-      attributes: ['2 Beds', '2 Baths', '1,200 sqft'],
+      speed: '50 Mbps',
+      description: 'Astound Internet First: Aimed at low-income families, offering reliable speeds for school and work at a reduced rate.',
+      price: 10,
+      offerUrl: 'https://www.speedtest.net/',
     },
     {
       id: 2,
-      title: 'Cozy Cottage',
-      description: 'A peaceful cottage in the countryside.',
-      price: 1500,
+      heading: 'Test 2',
       imageUrl: 'https://via.placeholder.com/300',
-      attributes: ['3 Beds', '1 Bath', '800 sqft'],
+      speed: '50 Mbps',
+      description: 'Astound Internet First: Aimed at low-income families, offering reliable speeds for school and work at a reduced rate.',
+      price: 10,
+      offerUrl: 'https://www.speedtest.net/',
     },
   ];
 
@@ -27,11 +29,12 @@ const ListingsPage = () => {
       {dummyListings.map((listing) => (
         <Card
           key={listing.id}
-          title={listing.title}
+          heading={listing.heading}
+          imageUrl={listing.imageUrl}
+          speed={listing.speed}
           description={listing.description}
           price={listing.price}
-          imageUrl={listing.imageUrl}
-          attributes={listing.attributes}
+          offerUrl={listing.offerUrl}
         />
       ))}
     </div>
