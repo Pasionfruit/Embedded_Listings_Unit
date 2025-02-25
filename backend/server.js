@@ -28,7 +28,11 @@ app.get('*', (req, res) => {
 //     console.log('HTTPS Server running on https://unitzo.com');
 // });
 
-// // Optionally, create HTTP server to redirect to HTTPS
+// Optionally, create HTTP server to redirect to HTTPS
 // http.createServer(app).listen(80, () => {
 //     console.log('HTTP Server running and redirecting to HTTPS');
 // });
+
+app.listen(5000, () => {
+    console.log(`Server running on port 5000`);
+  });
