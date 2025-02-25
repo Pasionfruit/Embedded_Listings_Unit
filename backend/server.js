@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 // const certificate = fs.readFileSync('/etc/letsencrypt/live/unitzo.com/fullchain.pem', 'utf8');
 
 // Create credentials object
-const credentials = { key: privateKey, cert: certificate };
+// const credentials = { key: privateKey, cert: certificate };
 
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
