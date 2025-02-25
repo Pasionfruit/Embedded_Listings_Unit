@@ -1,7 +1,8 @@
+// src/pages/ListingsPage.js
 import React from 'react';
 import Card from '../components/Card';
 
-const ListingsPage = () => {
+const AdminPage = () => {
   const dummyListings = [
     {
       id: 1,
@@ -24,20 +25,23 @@ const ListingsPage = () => {
   ];
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', padding: '20px' }}>
-      {dummyListings.map((listing) => (
-        <Card
-          key={listing.id}
-          heading={listing.heading}
-          imageUrl={listing.imageUrl}
-          speed={listing.speed}
-          description={listing.description}
-          price={listing.price}
-          offerUrl={listing.offerUrl}
-        />
-      ))}
+    <div style={{ padding: '20px'}}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', padding: '20px' }}>
+        {dummyListings.map((listing) => (
+          <Card
+            key={listing.id}
+            heading={listing.heading}
+            imageUrl={listing.imageUrl}
+            speed={listing.speed}
+            description={listing.description}
+            price={listing.price}
+            offerUrl={listing.offerUrl}
+          />
+        ))}
+      </div>
+      <button> Add new Listing </button>
     </div>
   );
 };
 
-export default ListingsPage;
+export default AdminPage;
