@@ -1,39 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 
 const ListingsPage = () => {
-  const dummyListings = [
-    {
-      id: 1,
-      heading: 'Astound Internet First',
-      imageUrl: 'https://via.placeholder.com/300',
-      speed: '50 Mbps',
-      description: 'Astound Internet First: Aimed at low-income families, offering reliable speeds for school and work at a reduced rate.',
-      price: 10,
-      offerUrl: 'https://www.speedtest.net/',
-    },
-    {
-      id: 2,
-      heading: 'Test 2',
-      imageUrl: 'https://via.placeholder.com/300',
-      speed: '50 Mbps',
-      description: 'Astound Internet First: Aimed at low-income families, offering reliable speeds for school and work at a reduced rate.',
-      price: 10,
-      offerUrl: 'https://www.speedtest.net/',
-    },
-  ];
+  const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/listings')
+    .then((response) => response.json())
+    .then((data) => {
+      setListings(data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error('Error fetching listings:', err);
+      setError('Failed to load listings');
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>
+  }
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', padding: '20px' }}>
-      {dummyListings.map((listing) => (
+      {listings.map((listing) => (
         <Card
           key={listing.id}
           heading={listing.heading}
-          imageUrl={listing.imageUrl}
+          imageUrl={listing.image_url}
           speed={listing.speed}
           description={listing.description}
           price={listing.price}
-          offerUrl={listing.offerUrl}
+          offerUrl={listing.offer_Url}
         />
       ))}
     </div>
